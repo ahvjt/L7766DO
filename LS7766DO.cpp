@@ -16,7 +16,7 @@
 
 
 
-void LS7766DO::LS7766DO(byte chip_select_pin)
+LS7766DO::LS7766DO(byte chip_select_pin)
 {
 	CS_pin = chip_select_pin;
 	pinMode(CS_pin,OUTPUT);
