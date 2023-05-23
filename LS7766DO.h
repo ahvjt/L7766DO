@@ -5,8 +5,8 @@
   The count values that are returned are always unsigned longs (32 bit integers) .
 */
 
-#ifndef LS7366_h
-#define LS7366_h
+#ifndef LS7766DO_h
+#define LS7766DO_h
 
 #include "Arduino.h"
 #include <SPI.h>
@@ -84,10 +84,10 @@
 #define LOAD_OTR    0xE8    
 
 
-class LS7366
+class LS7766DO
 {
   public:
-	LS7366(byte CS_pin);
+	LS7766DO(byte CS_pin);
 	void clear_mode_register_0();
 	void clear_mode_register_1();
 	void clear_counter();
