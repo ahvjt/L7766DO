@@ -72,6 +72,16 @@
 #define MASTER_RESET 0x10   //Master reset ALL registers
 #define SET_SIGN_BIT 0x20   //Set sign bit (STR bit0)
 #define SET_RESET_BIT 0x40  //Reset sign bit (STR bit0) 
+#define READ_MDR0 0x48 
+#define READ_MDR1 0x50 
+#define READ_CNTR   0x60 
+#define READ_OTR    0x68 
+#define READ_STR    0x70 
+#define WRITE_MDR1 0x90 
+#define WRITE_MDR0 0x88 
+#define WRITE_DTR   0x98 
+#define LOAD_CNTR   0xE0   
+#define LOAD_OTR    0xE8    
 
 
 class LS7366
