@@ -16,7 +16,7 @@
 
 
 
-LS7366::LS7366(byte chip_select_pin)
+LS7766DO::LS7766DO(byte chip_select_pin)
 {
 	CS_pin = chip_select_pin;
 	pinMode(CS_pin,OUTPUT);
@@ -25,7 +25,7 @@ LS7366::LS7366(byte chip_select_pin)
 	SPI.begin();
 }
 
-void LS7366::clear_mode_register_0()
+void LS7766DO::clear_mode_register_0()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(CLR_MDR0);
@@ -33,7 +33,7 @@ void LS7366::clear_mode_register_0()
 }
 
 
-void LS7366::clear_mode_register_1()
+void LS7766DO::clear_mode_register_1()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(CLR_MDR1);
@@ -41,7 +41,7 @@ void LS7366::clear_mode_register_1()
 }
 
 
-void LS7366::clear_counter()
+void LS7766DO::clear_counter()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(CLR_CNTR);
@@ -49,7 +49,7 @@ void LS7366::clear_counter()
 }
 
 
-void LS7366::clear_status_register()
+void LS7766DO:clear_status_register()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(CLR_STR);
@@ -57,7 +57,7 @@ void LS7366::clear_status_register()
 }
 
 
-byte LS7366::read_mode_register_0()
+byte LS7766DO::read_mode_register_0()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(READ_MDR0);
@@ -66,7 +66,7 @@ byte LS7366::read_mode_register_0()
 	return return_value;
 }
 
-byte LS7366::read_mode_register_1()
+byte LS7766DO::read_mode_register_1()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(READ_MDR1);
@@ -75,7 +75,7 @@ byte LS7366::read_mode_register_1()
 	return return_value;
 }
 
-unsigned long LS7366::read_counter()
+unsigned long LS7766DO::read_counter()
 {
 	unsigned long return_value=0;
 	byte bytes_to_read = datawidth;
@@ -93,7 +93,7 @@ unsigned long LS7366::read_counter()
 	return return_value;
 }
 
-unsigned long LS7366::read_OTR()
+unsigned long LS7766DO::read_OTR()
 {
 	unsigned long return_value=0;
 	byte bytes_to_read = datawidth;
@@ -113,7 +113,7 @@ unsigned long LS7366::read_OTR()
 	
 	
 	
-byte LS7366::read_status_register()
+byte LS7766DO::read_status_register()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(READ_STR);
@@ -123,7 +123,7 @@ byte LS7366::read_status_register()
 }
 
 
-void LS7366::write_mode_register_0(byte val)
+void LS7766DO::write_mode_register_0(byte val)
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(WRITE_MDR0);
@@ -132,7 +132,7 @@ void LS7366::write_mode_register_0(byte val)
 }
 
 
-void LS7366::write_mode_register_1(byte val)
+void LS7766DO::write_mode_register_1(byte val)
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(WRITE_MDR1);
@@ -142,7 +142,7 @@ void LS7366::write_mode_register_1(byte val)
 	datawidth = 0x04 - (0x03 & val);    //Note that 0x00 is 4 byte mode, 0x01 is 3 byte mode, etc, so we need to subtract from 4.
 }
 
-void LS7366::write_data_register(unsigned long val)
+void LS7766DO::write_data_register(unsigned long val)
 {
 	unsigned long value_to_write = val;
 	byte i = 0;
@@ -157,14 +157,14 @@ void LS7366::write_data_register(unsigned long val)
 	digitalWrite(CS_pin, HIGH);
 }
 
-void LS7366::load_counter()
+void LS7766DO::load_counter()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(LOAD_CNTR);
 	digitalWrite(CS_pin, HIGH);
 }
 
-void LS7366::load_OTR()
+void LS7766DO::load_OTR()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(LOAD_OTR);
@@ -172,7 +172,7 @@ void LS7366::load_OTR()
 }
 
 
-long LS7366::left_extend_MSB(long val)
+long LS7766DO::left_extend_MSB(long val)
 {
 	long value_to_return;
 	long MSB;
