@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "LS7366.h"
+#include "LS7766DO.h"
 #include "SPI.h"
 
 /*
