@@ -70,6 +70,8 @@
 #define LOAD_ODR 0x04       //Load ODR register
 #define CLR_STR 0x08        //Clear STR
 #define MASTER_RESET 0x10   //Master reset ALL registers
+#define CLR_MDR0 0x10
+#define CLR_MDR1 0x10
 #define SET_SIGN_BIT 0x20   //Set sign bit (STR bit0)
 #define SET_RESET_BIT 0x40  //Reset sign bit (STR bit0) 
 #define READ_MDR0 0x48 
