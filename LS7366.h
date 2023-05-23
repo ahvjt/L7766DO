@@ -46,11 +46,12 @@
 */
 
 //Flag modes 
-#define NO_FLAGS 0x00         //all flags disabled
-#define IDX_FLAG 0x10        //Index flag 
-#define CMP_FLAG 0x20        //Compare flag 
-#define BW_FLAG 0x40         //Borrow flag 
-#define CY_FLAG 0x80         //Carry flag
+#define FLGa_Carry 0x01      //Enable Carry on FLGa
+#define FLGa_Borrow 0x02     //Enable Borrow on FLGa
+#define FLGa_Compare 0x04    //Enable Compare on FLGa
+#define FLGa_Index 0x08      //Enable Index on FLGa
+#define FLGb_UpDown 0x10     //Set Up/Down count direction
+#define FLGa_Inst 0x80       //FLGa non-latched and instantaneous
 
 //Enable or disable counter  
 #define EN_CNTR 0x00        //counting enabled 
@@ -61,24 +62,16 @@
 #define BYTE_3 0x01         //three byte mode           
 #define BYTE_2 0x02         //two byte mode           
 #define BYTE_1 0x03         //one byte mode
-  
 
 
 /* LS7366R op-code list */ 
-#define CLR_MDR0 0x08    
-#define CLR_MDR1 0x10 
-#define CLR_CNTR 0x20 
-#define CLR_STR 0x30 
-#define READ_MDR0 0x48 
-#define READ_MDR1 0x50 
-#define READ_CNTR   0x60 
-#define READ_OTR    0x68 
-#define READ_STR    0x70 
-#define WRITE_MDR1 0x90 
-#define WRITE_MDR0 0x88 
-#define WRITE_DTR   0x98 
-#define LOAD_CNTR   0xE0   
-#define LOAD_OTR    0xE8    
+#define CLR_CNTR 0x01       //Reset counter    
+#define LOAD_CNTR 0x02      //Load counter
+#define LOAD_ODR 0x04       //Load ODR register
+#define CLR_STR 0x08        //Clear STR
+#define MASTER_RESET 0x10   //Master reset ALL registers
+#define SET_SIGN_BIT 0x20   //Set sign bit (STR bit0)
+#define SET_RESET_BIT 0x40  //Reset sign bit (STR bit0) 
 
 
 class LS7366
