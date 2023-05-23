@@ -49,7 +49,7 @@ void LS7766DO::clear_counter()
 }
 
 
-void LS7766DO:clear_status_register()
+void LS7766DO::clear_status_register()
 {
 	digitalWrite(CS_pin, LOW);
 	SPI.transfer(CLR_STR);
